@@ -1,0 +1,20 @@
+import canonicalLaneMathlib.AdmissibleClass
+import DeformationsSubmanifoldsSubspaces.DeformationSubmanifoldStructure
+import DeformationsSubmanifoldsSubspaces.TangentSubspaceTransport
+import DeformationsSubmanifoldsSubspaces.DeformationRetract
+import DeformationsSubmanifoldsSubspaces.NormalBundleDecomposition
+import DeformationsSubmanifoldsSubspaces.InfinitesimalDeformation
+import DeformationsSubmanifoldsSubspaces.SubspaceIntersectionDeformation
+
+namespace HautevilleHouse
+namespace DeformationsSubmanifoldsSubspaces
+
+def ConstrainedDeformationsSubmanifoldsClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_deformations_submanifolds_endgame (A : AdmissibleClass) :
+    ConstrainedDeformationsSubmanifoldsClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end DeformationsSubmanifoldsSubspaces
+end HautevilleHouse
